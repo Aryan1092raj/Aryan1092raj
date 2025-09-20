@@ -1,7 +1,7 @@
 # 👋 Hi, I'm Aryan Raj  
 _A first-year Electrical Engineering student at IIT Mandi, exploring tech, coding, and electronics._
 
-![Profile Views](https://komarev.com/ghpvc/?username=aryanraj&label=Profile%20views&color=0e75b6&style=flat)
+![Profile Views](https://komarev.com/ghpvc/?username=Aryan1092raj&label=Profile%20views&color=0e75b6&style=flat)
 
 ---
 
@@ -22,13 +22,13 @@ _A first-year Electrical Engineering student at IIT Mandi, exploring tech, codin
 ---
 
 ### 📊 GitHub Stats
-![Aryan's GitHub stats](https://github-readme-stats.vercel.app/api?username=aryanraj&show_icons=true&theme=tokyonight)  
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=aryanraj&layout=compact&theme=tokyonight)
+![Aryan's GitHub stats](https://github-readme-stats.vercel.app/api?username=Aryan1092raj&show_icons=true&theme=tokyonight)  
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Aryan1092raj&layout=compact&theme=tokyonight)
 
 ---
 
 ### 🏆 Trophies
-[![trophy](https://github-profile-trophy.vercel.app/?username=aryanraj&theme=darkhub&margin-w=8)](https://github.com/ryo-ma/github-profile-trophy)
+[![trophy](https://github-profile-trophy.vercel.app/?username=Aryan1092raj&theme=darkhub&margin-w=8)](https://github.com/ryo-ma/github-profile-trophy)
 
 ---
 
