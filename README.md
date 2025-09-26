@@ -38,4 +38,4 @@ _A first-year Electrical Engineering student at IIT Mandi, exploring tech, codin
 
 ---
 
-💡 _“Learning by building, one project at a time.”_
+💡 _“To understand recursion… you must first understand recursion.”_
