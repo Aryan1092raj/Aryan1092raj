@@ -29,8 +29,9 @@ _First-year Electrical Engineering student at IIT Mandi | Exploring tech, coding
 
 ## 🖥 Competitive Coding
 - **Codeforces:** [AryanRaj_1](https://codeforces.com/profile/AryanRaj_1)  
-![Codeforces Rating](https://cf-badge.vercel.app/api/badge/AryanRaj_1)  
-![Codeforces Streak](https://cf-streak.vercel.app/badge/AryanRaj_1)
+<a href="https://codeforces.com/profile/AryanRaj_1" target="_blank">
+  <img src="https://img.shields.io/badge/Codeforces-Check%20Profile-1f8acb?style=for-the-badge&logo=codeforces&logoColor=white" alt="Codeforces"/>
+</a>
 
 ---
 
@@ -44,9 +45,6 @@ _First-year Electrical Engineering student at IIT Mandi | Exploring tech, coding
   </a>
   <a href="https://github.com/Aryan1092raj" target="_blank">
     <img src="https://img.shields.io/badge/GitHub-Aryan1092raj-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
-  </a>
-  <a href="https://codeforces.com/profile/AryanRaj_1" target="_blank">
-    <img src="https://img.shields.io/badge/Codeforces-AryanRaj_1-1f8acb?style=for-the-badge&logo=codeforces&logoColor=white" alt="Codeforces"/>
   </a>
 </p>
 
