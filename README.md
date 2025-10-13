@@ -12,24 +12,18 @@ _First-year Electrical Engineering student at IIT Mandi | Exploring tech, coding
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" height="40" alt="Linux"/>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="40" alt="VS Code"/>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height="40" alt="Git"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" height="40" alt="MATLAB"/>
 </p>
-
----
-
-## 📂 Projects & Explorations
-| Project | Tech/Tools | Description |
-|---------|------------|-------------|
-| **Line Following Robot** | Arduino, C++ | Built a fully functional line-following robot with sensor integration and motor control. |
-| **Adaptive Learning Rate Algorithm** | Python, ML | Implemented an adaptive learning rate method for gradient descent optimization. |
-| **CS101 DSA Notebook** | C++ | Organized comprehensive DSA solutions for practice & reference. |
-| **Electronics Mini Projects** | MATLAB, Arduino | Explored circuits, sensors, and automation projects. |
 
 ---
 
 ## 📊 GitHub Stats
 ![Aryan's GitHub stats](https://github-readme-stats.vercel.app/api?username=Aryan1092raj&show_icons=true&theme=tokyonight)  
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Aryan1092raj&layout=compact&theme=tokyonight)
+
+---
+
+## 🔥 GitHub Streak
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=Aryan1092raj&theme=tokyonight)
 
 ---
 
@@ -51,3 +45,8 @@ _First-year Electrical Engineering student at IIT Mandi | Exploring tech, coding
 ## 💡 Quote
 _“To understand recursion, you must first understand recursion.”_  
 **Motto:** Build, learn, iterate, repeat—hands-on experience beats theory every time.
+
+---
+
+### ✨ Fun Fact
+I am continuously exploring coding, problem-solving, and electronics to strengthen my skills and understanding of technology.
