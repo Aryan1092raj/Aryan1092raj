@@ -1,5 +1,5 @@
 # 👋 Hi, I'm Aryan Raj  
-_First-year Electrical Engineering student at IIT Mandi | Exploring tech, coding, and electronics_
+_First-year Electrical Engineering student at IIT Mandi | Exploring technology, coding, and electronics_
 
 ![Profile Views](https://komarev.com/ghpvc/?username=Aryan1092raj&label=Profile%20Views&color=blueviolet&style=flat-square)
 
@@ -14,15 +14,15 @@ _First-year Electrical Engineering student at IIT Mandi | Exploring tech, coding
 
 ## 📊 GitHub Stats  
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Aryan1092raj&show_icons=true&theme=tokyonight&hide_border=true" height="160"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aryan1092raj&layout=compact&theme=tokyonight&hide_border=true" height="160"/>
+  <img src="https://github-readme-stats.vercel.app/api?username=Aryan1092raj&show_icons=true&theme=tokyonight&hide_border=true" height="160" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aryan1092raj&layout=compact&theme=tokyonight&hide_border=true" height="160" />
 </p>
 
 ---
 
 ## 🔥 Streak  
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Aryan1092raj&theme=tokyonight&hide_border=true" height="160"/>
+  <img src="https://streak-stats.demolab.com?user=Aryan1092raj&theme=tokyonight&hide_border=true" height="160" />
 </p>
 
 ---
@@ -31,7 +31,7 @@ _First-year Electrical Engineering student at IIT Mandi | Exploring tech, coding
 **Codeforces:** [AryanRaj_1](https://codeforces.com/profile/AryanRaj_1)  
 <p align="left">
   <a href="https://codeforces.com/profile/AryanRaj_1" target="_blank">
-    <img src="https://img.shields.io/badge/Codeforces-1F8ACB?style=for-the-badge&logo=codeforces&logoColor=white"/>
+    <img src="https://img.shields.io/badge/Codeforces-1F8ACB?style=for-the-badge&logo=codeforces&logoColor=white" />
   </a>
 </p>
 
@@ -53,4 +53,4 @@ _“To understand recursion, you must first understand recursion.”_
 ---
 
 ## ⚡ Fun Fact  
-Always blending code, circuits, and logic to convert theory into working systems.
+Always blending code, circuits, and logic to turn theory into working systems.
