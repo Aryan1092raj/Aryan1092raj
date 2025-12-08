@@ -12,6 +12,7 @@ _First-year Electrical Engineering student at IIT Mandi | Exploring technology, 
 
 ---
 
+
 ## 📊 GitHub Stats  
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=Aryan1092raj&show_icons=true&theme=tokyonight&hide_border=true" height="160" />
