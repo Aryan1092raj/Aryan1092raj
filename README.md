@@ -22,7 +22,7 @@ _First-year Electrical Engineering student at IIT Mandi | Exploring technology, 
 
 ## 🔥 Streak  
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=Aryan1092raj&theme=tokyonight&hide_border=true&mode=weekly" height="160" />
+  <img src="https://github-readme-stats.vercel.app/api?username=Aryan1092raj&show_icons=true&theme=tokyonight&hide_border=true&cache_seconds=21600" height="160" />
 </p>
 
 ---
