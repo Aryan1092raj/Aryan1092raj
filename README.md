@@ -12,29 +12,24 @@ _First-year Electrical Engineering student at IIT Mandi | Exploring technology, 
 
 ---
 
-
-## 📊 GitHub Stats  
+## 📊 GitHub Activity  
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Aryan1092raj&show_icons=true&theme=tokyonight&hide_border=true" height="160" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aryan1092raj&layout=compact&theme=tokyonight&hide_border=true" height="160" />
+  <img src="https://github-readme-stats.vercel.app/api?username=Aryan1092raj&show_icons=true&theme=tokyonight&hide_border=true&cache_seconds=21600" height="160" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aryan1092raj&layout=compact&theme=tokyonight&hide_border=true&cache_seconds=21600" height="160" />
 </p>
 
 ---
 
 ## 🔥 Streak  
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=Aryan1092raj&theme=tokyonight&hide_border=true" height="160" />
+  <img src="https://streak-stats.demolab.com?user=Aryan1092raj&theme=tokyonight&hide_border=true&mode=weekly" height="160" />
 </p>
 
 ---
 
 ## 🧩 Competitive Coding  
 **Codeforces:** [AryanRaj_1](https://codeforces.com/profile/AryanRaj_1)  
-<p align="left">
-  <a href="https://codeforces.com/profile/AryanRaj_1" target="_blank">
-    <img src="https://img.shields.io/badge/Codeforces-1F8ACB?style=for-the-badge&logo=codeforces&logoColor=white" />
-  </a>
-</p>
+**LeetCode:** [Dy9h5fmpvr](https://leetcode.com/u/Dy9h5fmpvr/)
 
 ---
 
