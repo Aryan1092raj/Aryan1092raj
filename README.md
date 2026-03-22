@@ -130,11 +130,7 @@ PID   PROCESS                         CPU%   STATUS
 
 ---
 
-## `$ fortune` — Dev Quote
-
-<p align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=merko" alt="Dev Quote" />
-</p>
+## `$ fortune`
 
 > *"To understand recursion, you must first understand recursion."*
 
