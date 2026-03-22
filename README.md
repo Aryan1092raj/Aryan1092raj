@@ -1,657 +1,149 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AryanOS v1.0</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0a0e0a,50:00aa2e,100:00ff41&height=220&section=header&text=AryanOS%20v1.0&fontSize=62&fontColor=00ff41&fontAlignY=38&desc=Electrical%20Engineering%20%40%20IIT%20Mandi&descAlignY=58&descSize=18&animation=fadeIn" />
+</p>
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=18&pause=1000&color=00FF41&center=true&vCenter=true&width=650&lines=aryan%40aryanos%3A~%24+whoami;%3E+B.Tech+EE+%40+IIT+Mandi+%F0%9F%8F%94%EF%B8%8F;aryan%40aryanos%3A~%24+cat+motto.txt;%3E+Build.+Learn.+Iterate.+Repeat.+%E2%9A%A1;aryan%40aryanos%3A~%24+./run_curiosity.sh;%3E+Blending+code%2C+circuits+%26+logic..." alt="Typing SVG" />
+</p>
 
-  :root {
-    --green: #00ff41;
-    --green-dim: #00aa2e;
-    --green-dark: #003b10;
-    --amber: #ffb000;
-    --cyan: #00e5ff;
-    --red: #ff3b3b;
-    --bg: #0a0e0a;
-    --scanline: rgba(0,0,0,0.12);
-  }
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=Aryan1092raj&label=Profile+Views&color=00ff41&style=flat-square&labelColor=0a0e0a" />
+  <img src="https://img.shields.io/github/followers/Aryan1092raj?label=Followers&style=flat-square&color=00aa2e&labelColor=0a0e0a" />
+  <img src="https://img.shields.io/badge/Focus-Embedded%20Systems-00ff41?style=flat-square&labelColor=0a0e0a" />
+  <img src="https://img.shields.io/badge/OS-Linux-00aa2e?style=flat-square&labelColor=0a0e0a&logo=linux&logoColor=00ff41" />
+</p>
 
-  html, body {
-    width: 100%; height: 100%;
-    background: #000;
-    font-family: 'Share Tech Mono', 'Courier New', monospace;
-    overflow: hidden;
-  }
+---
 
-  #monitor {
-    width: 100%; height: 100vh;
-    background: var(--bg);
-    position: relative;
-    overflow: hidden;
-  }
+## `$ cat about_me.txt`
 
-  /* CRT scanlines */
-  #monitor::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: repeating-linear-gradient(
-      0deg,
-      var(--scanline) 0px,
-      var(--scanline) 1px,
-      transparent 1px,
-      transparent 3px
-    );
-    pointer-events: none; z-index: 10;
-  }
+```cpp
+class AryanRaj {
+public:
+    string name     = "Aryan Raj";
+    string college  = "IIT Mandi";
+    string branch   = "Electrical Engineering (1st Year)";
+    string location = "Mandi, Himachal Pradesh, India 🏔️";
 
-  /* CRT vignette */
-  #monitor::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.75) 100%);
-    pointer-events: none; z-index: 11;
-  }
+    vector<string> interests = {
+        "Competitive Programming",
+        "Embedded Systems & Electronics",
+        "Systems Programming (C / C++)",
+        "Linux & Open Source"
+    };
 
-  #screen {
-    width: 100%; height: 100%;
-    padding: 20px 28px 20px 28px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    position: relative;
-    z-index: 1;
-  }
+    string motto = "Build. Learn. Iterate. Repeat.";
 
-  #screen::-webkit-scrollbar { width: 4px; }
-  #screen::-webkit-scrollbar-track { background: #000; }
-  #screen::-webkit-scrollbar-thumb { background: var(--green-dark); }
-
-  .line {
-    color: var(--green);
-    font-size: 14px;
-    line-height: 1.55;
-    white-space: pre-wrap;
-    word-break: break-all;
-    opacity: 0;
-    animation: fadein 0.05s forwards;
-  }
-
-  @keyframes fadein { to { opacity: 1; } }
-
-  .line.dim    { color: var(--green-dim); }
-  .line.bright { color: #80ff90; font-weight: bold; }
-  .line.amber  { color: var(--amber); }
-  .line.cyan   { color: var(--cyan); }
-  .line.red    { color: var(--red); }
-  .line.white  { color: #e0e0e0; }
-  .line.gap    { line-height: 0.6; }
-
-  #prompt-row {
-    display: flex; align-items: center;
-    margin-top: 2px;
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
-  #prompt-row.visible { opacity: 1; }
-
-  #prompt-label {
-    color: var(--cyan);
-    font-size: 14px;
-    white-space: nowrap;
-    font-family: 'Share Tech Mono', monospace;
-  }
-
-  #cmd-input {
-    background: transparent;
-    border: none; outline: none;
-    color: var(--green);
-    font-size: 14px;
-    font-family: 'Share Tech Mono', monospace;
-    flex: 1;
-    caret-color: var(--green);
-    margin-left: 4px;
-  }
-
-  #cursor-blink {
-    display: inline-block;
-    width: 9px; height: 16px;
-    background: var(--green);
-    vertical-align: middle;
-    animation: blink 1s step-end infinite;
-    margin-left: 1px;
-  }
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-  /* Phosphor glow on text */
-  .line, #prompt-label, #cmd-input {
-    text-shadow: 0 0 4px rgba(0,255,65,0.35);
-  }
-  .line.amber { text-shadow: 0 0 4px rgba(255,176,0,0.4); }
-  .line.cyan  { text-shadow: 0 0 4px rgba(0,229,255,0.4); }
-  .line.red   { text-shadow: 0 0 4px rgba(255,59,59,0.5); }
-
-  /* BOOT screen */
-  #boot-overlay {
-    position: fixed; inset: 0;
-    background: #000;
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column;
-    z-index: 100;
-    transition: opacity 0.8s;
-  }
-  #boot-overlay.fade { opacity: 0; pointer-events: none; }
-
-  #boot-ascii {
-    color: var(--green);
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 13px;
-    line-height: 1.3;
-    text-align: center;
-    text-shadow: 0 0 8px rgba(0,255,65,0.6);
-    white-space: pre;
-  }
-
-  #boot-bar-wrap {
-    margin-top: 24px; width: 340px;
-    border: 1px solid var(--green-dim);
-    height: 16px; background: #000; position: relative;
-  }
-  #boot-bar {
-    height: 100%; background: var(--green);
-    width: 0%; transition: width 0.05s linear;
-    box-shadow: 0 0 8px rgba(0,255,65,0.6);
-  }
-  #boot-pct {
-    color: var(--green-dim);
-    font-size: 12px;
-    font-family: 'Share Tech Mono', monospace;
-    margin-top: 8px;
-    text-align: center;
-  }
-
-  /* matrix rain easter egg */
-  #matrix-canvas {
-    position: fixed; inset: 0;
-    z-index: 50;
-    display: none;
-  }
-
-  /* glitch effect */
-  .glitch {
-    animation: glitch 0.15s steps(2) 3;
-  }
-  @keyframes glitch {
-    0%  { transform: translate(-2px, 0) skewX(-0.5deg); filter: brightness(2); }
-    33% { transform: translate(2px, 0) skewX(0.5deg); }
-    66% { transform: translate(-1px, 0); filter: brightness(1.5); }
-    100%{ transform: translate(0); filter: brightness(1); }
-  }
-</style>
-</head>
-<body>
-
-<!-- BOOT OVERLAY -->
-<div id="boot-overlay">
-  <pre id="boot-ascii"></pre>
-  <div id="boot-bar-wrap"><div id="boot-bar"></div></div>
-  <div id="boot-pct">0%</div>
-</div>
-
-<!-- MATRIX CANVAS -->
-<canvas id="matrix-canvas"></canvas>
-
-<!-- MAIN TERMINAL -->
-<div id="monitor">
-  <div id="screen">
-    <div id="output"></div>
-    <div id="prompt-row">
-      <span id="prompt-label">aryan@aryanos:~$&nbsp;</span>
-      <input id="cmd-input" type="text" autocomplete="off" autocorrect="off" spellcheck="false" autofocus />
-      <span id="cursor-blink"></span>
-    </div>
-  </div>
-</div>
-
-<script>
-const ASCII_LOGO = `
-  ___   ____  __   __ ___   _  _    ___   ____
- / _ | / __ \\/ /  / // _ | / \\/ |  / _ | / __/
-/ __ |/ /_/ / /__/ // __ |/ /\\  | / __ |_\\ \\  
-/_/ |_|\\____/____/_//_/ |_/_/  \\_|/_/ |_/___/  
-                                                 
-          v1.0.0 — AryanOS EE Terminal           
-       Built on: IIT Mandi Silicon Architecture  
-`;
-
-const BOOT_MSGS = [
-  "[  0.001] BIOS v3.14.1 — EE-Chip Detected",
-  "[  0.042] Initializing CPU: AryanCore 1.0 @ 3.9GHz",
-  "[  0.085] RAM: 64GB DDR5 — All OK",
-  "[  0.123] Mounting /dev/brain... done",
-  "[  0.201] Loading kernel: linux-5.18-iitmandi",
-  "[  0.350] Probing interfaces: C++ Python Bash",
-  "[  0.444] Connecting to IIT Mandi academic server...",
-  "[  0.512] Codeforces daemon: AryanRaj_1 — ONLINE",
-  "[  0.600] LeetCode daemon: Dy9h5fmpvr — ONLINE",
-  "[  0.750] Embedded Systems subsystem: READY",
-  "[  0.890] Arduino HAL: LOADED",
-  "[  1.000] AryanOS fully operational.",
-];
-
-const COMMANDS = {
-  help: {
-    fn: () => [
-      { t:"cyan",  v:"╔══════════════════════════════════════╗" },
-      { t:"cyan",  v:"║         ARYANOS COMMAND MANUAL        ║" },
-      { t:"cyan",  v:"╚══════════════════════════════════════╝" },
-      { t:"",      v:"" },
-      { t:"amber", v:"  whoami     ", suffix:"— about me" },
-      { t:"amber", v:"  skills     ", suffix:"— tech stack & tools" },
-      { t:"amber", v:"  cp         ", suffix:"— competitive programming" },
-      { t:"amber", v:"  social     ", suffix:"— links & contacts" },
-      { t:"amber", v:"  projects   ", suffix:"— what I'm building" },
-      { t:"amber", v:"  ls         ", suffix:"— list my directories" },
-      { t:"amber", v:"  cat <file> ", suffix:"— read a file (try cat readme.txt)" },
-      { t:"amber", v:"  uptime     ", suffix:"— how long I've been running" },
-      { t:"amber", v:"  matrix     ", suffix:"— 👀 go deeper" },
-      { t:"amber", v:"  clear      ", suffix:"— clear the terminal" },
-      { t:"amber", v:"  reboot     ", suffix:"— restart AryanOS" },
-      { t:"",      v:"" },
-      { t:"dim",   v:"  TIP: use ↑↓ to navigate history" },
-    ]
-  },
-  whoami: {
-    fn: () => [
-      { t:"cyan",   v:"┌─── PROCESS: aryanraj ─────────────────┐" },
-      { t:"white",  v:"│" },
-      { t:"bright", v:"│  Aryan Raj" },
-      { t:"white",  v:"│  B.Tech Electrical Engineering" },
-      { t:"white",  v:"│  Indian Institute of Technology, Mandi" },
-      { t:"white",  v:"│  Mandi, Himachal Pradesh, India 🏔" },
-      { t:"white",  v:"│" },
-      { t:"dim",    v:"│  UID   : 2024EE___" },
-      { t:"dim",    v:"│  SHELL : /bin/curiosity" },
-      { t:"dim",    v:"│  TERM  : Build.Learn.Iterate.Repeat" },
-      { t:"white",  v:"│" },
-      { t:"green",  v:"│  → Always blending code, circuits &" },
-      { t:"green",  v:"│    logic to turn theory into systems." },
-      { t:"white",  v:"│" },
-      { t:"cyan",   v:"└────────────────────────────────────────┘" },
-    ]
-  },
-  skills: {
-    fn: () => [
-      { t:"cyan",   v:"╔═══════════════ SKILLS ════════════════╗" },
-      { t:"cyan",   v:"║                                        ║" },
-      { t:"amber",  v:"║  LANGUAGES                             ║" },
-      { t:"white",  v:"║  C++      ████████████████░░░░  80%    ║" },
-      { t:"white",  v:"║  Python   ████████████░░░░░░░░  60%    ║" },
-      { t:"white",  v:"║  Bash     ████████░░░░░░░░░░░░  45%    ║" },
-      { t:"cyan",   v:"║                                        ║" },
-      { t:"amber",  v:"║  TOOLS                                 ║" },
-      { t:"white",  v:"║  Git      ████████████░░░░░░░░  65%    ║" },
-      { t:"white",  v:"║  Linux    ████████████░░░░░░░░  60%    ║" },
-      { t:"white",  v:"║  Arduino  ██████████░░░░░░░░░░  55%    ║" },
-      { t:"white",  v:"║  VS Code  ███████████████████░  95%    ║" },
-      { t:"cyan",   v:"║                                        ║" },
-      { t:"amber",  v:"║  LEARNING NOW                          ║" },
-      { t:"white",  v:"║  DSA          [===========........]    ║" },
-      { t:"white",  v:"║  Digital Elec [==========.........]    ║" },
-      { t:"white",  v:"║  Embedded Sys [=========..........]    ║" },
-      { t:"cyan",   v:"╚════════════════════════════════════════╝" },
-    ]
-  },
-  cp: {
-    fn: () => [
-      { t:"cyan",  v:"┌─── COMPETITIVE PROGRAMMING ──────────┐" },
-      { t:"",      v:"" },
-      { t:"amber", v:"  ⚡ Codeforces" },
-      { t:"white", v:"     Handle  : AryanRaj_1" },
-      { t:"white", v:"     Status  : ACTIVE — grinding daily" },
-      { t:"cyan",  v:"     URL     : codeforces.com/profile/AryanRaj_1" },
-      { t:"",      v:"" },
-      { t:"amber", v:"  ⚡ LeetCode" },
-      { t:"white", v:"     Handle  : Dy9h5fmpvr" },
-      { t:"white", v:"     Status  : ACTIVE — daily problems" },
-      { t:"cyan",  v:"     URL     : leetcode.com/u/Dy9h5fmpvr" },
-      { t:"",      v:"" },
-      { t:"dim",   v:"  [ solving problems every day. no days off. ]" },
-      { t:"",      v:"" },
-      { t:"cyan",  v:"└──────────────────────────────────────┘" },
-    ]
-  },
-  social: {
-    fn: () => [
-      { t:"cyan",  v:"┌─── NETWORK INTERFACES ───────────────┐" },
-      { t:"",      v:"" },
-      { t:"amber", v:"  GitHub   " },
-      { t:"white", v:"  → github.com/Aryan1092raj" },
-      { t:"",      v:"" },
-      { t:"amber", v:"  LinkedIn " },
-      { t:"white", v:"  → linkedin.com/in/aryan-raj-072138375" },
-      { t:"",      v:"" },
-      { t:"amber", v:"  Gmail    " },
-      { t:"white", v:"  → aryanraj1092@gmail.com" },
-      { t:"",      v:"" },
-      { t:"dim",   v:"  All packets welcomed. Response time: ~24h" },
-      { t:"",      v:"" },
-      { t:"cyan",  v:"└──────────────────────────────────────┘" },
-    ]
-  },
-  projects: {
-    fn: () => [
-      { t:"cyan",  v:"┌─── /home/aryan/projects ─────────────┐" },
-      { t:"",      v:"" },
-      { t:"amber", v:"  [*] ACTIVE" },
-      { t:"white", v:"  → DSA Practice Repo (C++)" },
-      { t:"dim",   v:"    Solving CF + LC problems systematically" },
-      { t:"",      v:"" },
-      { t:"white", v:"  → Embedded Systems Experiments" },
-      { t:"dim",   v:"    Arduino-based hardware projects" },
-      { t:"",      v:"" },
-      { t:"white", v:"  → Digital Electronics Labs" },
-      { t:"dim",   v:"    Logic gates, flip-flops, combinational circuits" },
-      { t:"",      v:"" },
-      { t:"amber", v:"  [+] UPCOMING" },
-      { t:"dim",   v:"  → More to come. Stay tuned." },
-      { t:"",      v:"" },
-      { t:"cyan",  v:"└──────────────────────────────────────┘" },
-    ]
-  },
-  ls: {
-    fn: () => [
-      { t:"cyan",  v:"drwxr-xr-x  aryan  skills/" },
-      { t:"cyan",  v:"drwxr-xr-x  aryan  projects/" },
-      { t:"cyan",  v:"drwxr-xr-x  aryan  competitive_programming/" },
-      { t:"cyan",  v:"drwxr-xr-x  aryan  embedded_systems/" },
-      { t:"white", v:"-rw-r--r--  aryan  readme.txt" },
-      { t:"white", v:"-rw-r--r--  aryan  motivations.txt" },
-      { t:"white", v:"-rw-r--r--  aryan  fun_fact.txt" },
-      { t:"dim",   v:"-rwx------  aryan  secret.sh" },
-    ]
-  },
-  uptime: {
-    fn: () => {
-      const now = new Date();
-      const started = new Date('2024-08-01');
-      const diff = Math.floor((now - started) / 1000);
-      const days = Math.floor(diff / 86400);
-      const hrs  = Math.floor((diff % 86400) / 3600);
-      const mins = Math.floor((diff % 3600) / 60);
-      return [
-        { t:"cyan",  v:"System uptime:" },
-        { t:"bright",v:`  ${days}d ${hrs}h ${mins}m — learning non-stop since IIT Mandi admission` },
-        { t:"dim",   v:"  Load avg: high  |  Motivation: 99.9%  |  Sleep: optional" },
-      ];
+    void run() {
+        while (true) {
+            learn(); build(); iterate(); repeat();
+        }
     }
-  },
-  clear: { fn: () => "CLEAR" },
-  reboot: { fn: () => "REBOOT" },
-  matrix: { fn: () => "MATRIX" },
 };
+```
 
-const CAT_FILES = {
-  "readme.txt": [
-    { t:"bright", v:"╔══════ readme.txt ══════════════════════╗" },
-    { t:"white",  v:"║                                        ║" },
-    { t:"white",  v:"║  Hi. I'm Aryan Raj.                    ║" },
-    { t:"white",  v:"║  1st year EE at IIT Mandi.             ║" },
-    { t:"white",  v:"║                                        ║" },
-    { t:"white",  v:"║  I write code. I solder circuits.      ║" },
-    { t:"white",  v:"║  I debug both.                         ║" },
-    { t:"white",  v:"║                                        ║" },
-    { t:"white",  v:"║  Theory is great. Working systems      ║" },
-    { t:"white",  v:"║  are better. I build both.             ║" },
-    { t:"white",  v:"║                                        ║" },
-    { t:"cyan",   v:"╚════════════════════════════════════════╝" },
-  ],
-  "motivations.txt": [
-    { t:"amber", v:"  > Why EE?" },
-    { t:"white", v:"    Because electricity runs everything." },
-    { t:"white", v:"    And I want to understand everything." },
-    { t:"",      v:"" },
-    { t:"amber", v:"  > Why code?" },
-    { t:"white", v:"    It's the fastest way to test an idea." },
-    { t:"white", v:"    Build → run → fail → fix → repeat." },
-    { t:"",      v:"" },
-    { t:"amber", v:"  > Why competitive programming?" },
-    { t:"white", v:"    Sharpens thinking. Builds problem-solving reflexes." },
-    { t:"white", v:"    The struggle IS the point." },
-  ],
-  "fun_fact.txt": [
-    { t:"amber", v:"  Running fun_fact()..." },
-    { t:"",      v:"" },
-    { t:"bright",v:"  \"Always blending code, circuits & logic" },
-    { t:"bright",v:"   to turn theory into working systems ⚡\"" },
-    { t:"",      v:"" },
-    { t:"dim",   v:"  class AryanRaj { string motto = \"Build.Learn.Iterate.Repeat.\"; }" },
-  ],
-};
+---
 
-// ── Boot sequence ──────────────────────────────────────────────────────────
-const bootEl  = document.getElementById('boot-overlay');
-const asciiEl = document.getElementById('boot-ascii');
-const barEl   = document.getElementById('boot-bar');
-const pctEl   = document.getElementById('boot-pct');
+## `$ ls skills/`
 
-asciiEl.textContent = ASCII_LOGO;
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=cpp,python,linux,bash,git,github,vscode,arduino&theme=dark" height="48" alt="Skills" />
+</p>
 
-let pct = 0;
-const bootInterval = setInterval(() => {
-  pct += Math.random() * 4 + 1;
-  if (pct >= 100) { pct = 100; clearInterval(bootInterval); }
-  barEl.style.width = pct + '%';
-  pctEl.textContent = Math.floor(pct) + '%';
-}, 60);
+| `category` | `stack` |
+|---|---|
+| **Languages** | C++, Python, Bash |
+| **Tools** | Git, GitHub, VS Code, Linux |
+| **Hardware** | Arduino, Basic Circuit Design |
+| **Learning** | DSA, Digital Electronics, Embedded Systems |
 
-let msgIdx = 0;
-function showBootMsg() {
-  if (msgIdx < BOOT_MSGS.length) {
-    const p = document.createElement('div');
-    p.style.cssText = "color:#00aa2e;font-size:12px;font-family:'Share Tech Mono',monospace;margin-top:3px;";
-    p.textContent = BOOT_MSGS[msgIdx++];
-    asciiEl.after(p);
-    setTimeout(showBootMsg, 90);
-  } else {
-    setTimeout(() => {
-      bootEl.classList.add('fade');
-      setTimeout(() => { bootEl.remove(); startTerminal(); }, 800);
-    }, 600);
-  }
-}
-setTimeout(showBootMsg, 600);
+---
 
-// ── Terminal engine ────────────────────────────────────────────────────────
-const output = document.getElementById('output');
-const promptRow = document.getElementById('prompt-row');
-const cmdInput  = document.getElementById('cmd-input');
-let cmdHistory = [], histIdx = -1;
+## `$ top` — What I'm Up To
 
-function addLine(text, cls = '', delay = 0) {
-  return new Promise(res => {
-    setTimeout(() => {
-      const d = document.createElement('div');
-      d.className = 'line' + (cls ? ' ' + cls : '');
-      d.textContent = text;
-      output.appendChild(d);
-      scrollBottom();
-      res();
-    }, delay);
-  });
-}
+```
+PID   PROCESS                         CPU%   STATUS
+---   -------                         ----   ------
+001   grinding_1st_year_EE            high   RUNNING
+002   solving_codeforces_daily        high   RUNNING
+003   leetcode_grind                  high   RUNNING
+004   learning_DSA_in_cpp             med    RUNNING
+005   exploring_microcontrollers      med    RUNNING
+006   building_small_projects         med    RUNNING
+007   sleeping                        low    SUSPENDED
+```
 
-function scrollBottom() {
-  const s = document.getElementById('screen');
-  s.scrollTop = s.scrollHeight;
-}
+---
 
-function addPromptLine(cmd) {
-  const d = document.createElement('div');
-  d.className = 'line cyan';
-  d.textContent = 'aryan@aryanos:~$ ' + cmd;
-  output.appendChild(d);
-}
+## `$ cat cp_handles.txt` — Competitive Programming
 
-async function renderRows(rows) {
-  for (let i = 0; i < rows.length; i++) {
-    const r = rows[i];
-    const cls = r.t || '';
-    let text = r.v || '';
-    if (r.suffix) {
-      await addLine(text + r.suffix, cls, i * 18);
-    } else {
-      await addLine(text, cls, i * 18);
-    }
-  }
-  await new Promise(res => setTimeout(res, rows.length * 18 + 50));
-}
+<p align="left">
+  <a href="https://codeforces.com/profile/AryanRaj_1" target="_blank">
+    <img src="https://img.shields.io/badge/Codeforces-AryanRaj__1-1F8ACB?style=for-the-badge&logo=codeforces&logoColor=white&labelColor=0a0e0a" />
+  </a>
+  &nbsp;
+  <a href="https://leetcode.com/u/Dy9h5fmpvr/" target="_blank">
+    <img src="https://img.shields.io/badge/LeetCode-Dy9h5fmpvr-FFA116?style=for-the-badge&logo=leetcode&logoColor=black&labelColor=0a0e0a" />
+  </a>
+</p>
 
-async function runCommand(raw) {
-  const cmd = raw.trim().toLowerCase();
-  const parts = cmd.split(' ');
-  const base = parts[0];
+> ⚡ Solving problems every day. No days off.
 
-  addPromptLine(raw);
+---
 
-  if (!cmd) { scrollBottom(); return; }
+## `$ git log --stat` — GitHub Stats
 
-  if (cmdHistory[0] !== raw) cmdHistory.unshift(raw);
-  histIdx = -1;
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Aryan1092raj&show_icons=true&theme=merko&hide_border=true&count_private=true&include_all_commits=true&bg_color=0a0e0a&title_color=00ff41&icon_color=00aa2e&text_color=80ff90&ring_color=00ff41" height="170" alt="GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aryan1092raj&layout=compact&theme=merko&hide_border=true&langs_count=8&bg_color=0a0e0a&title_color=00ff41&text_color=80ff90" height="170" alt="Top Languages" />
+</p>
 
-  if (base === 'clear') {
-    output.innerHTML = '';
-    return;
-  }
+<p align="center">
+  <img src="https://streak-stats.demolab.com?user=Aryan1092raj&theme=merko&hide_border=true&mode=weekly&background=0a0e0a&ring=00ff41&fire=ffb000&currStreakLabel=00ff41&sideLabels=00aa2e&currStreakNum=80ff90&sideNums=80ff90&dates=4a7a4a" height="170" alt="GitHub Streak" />
+</p>
 
-  if (base === 'reboot') {
-    await addLine('Rebooting AryanOS...', 'dim');
-    await addLine('', '');
-    setTimeout(() => location.reload(), 1200);
-    return;
-  }
+---
 
-  if (base === 'matrix') {
-    await addLine('Entering the Matrix... type anything to exit.', 'amber');
-    startMatrix();
-    return;
-  }
+## `$ git graph --all` — Contribution Activity
 
-  if (base === 'cat') {
-    const fname = parts[1];
-    if (!fname) {
-      await addLine('Usage: cat <file>', 'red');
-      await addLine('Try: cat readme.txt', 'dim');
-    } else if (CAT_FILES[fname]) {
-      await renderRows(CAT_FILES[fname]);
-    } else if (fname === 'secret.sh') {
-      await addLine('Permission denied. (Nice try though)', 'red');
-      await addLine('...okay fine: aryan@aryanos:~$ sudo ./secret.sh', 'dim');
-      await addLine('ERROR: sudo requires motivation > 9000. You have: 8999.', 'dim');
-    } else {
-      await addLine(`cat: ${fname}: No such file or directory`, 'red');
-    }
-    return;
-  }
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Aryan1092raj&theme=merko&hide_border=true&area=true&bg_color=0a0e0a&color=00ff41&line=00aa2e&point=80ff90&area_color=003b10" alt="Contribution Graph" />
+</p>
 
-  if (COMMANDS[base]) {
-    const result = COMMANDS[base].fn();
-    if (typeof result === 'string') return; // handled above
-    await renderRows(result);
-    return;
-  }
+---
 
-  // Unknown command
-  await addLine(`command not found: ${cmd}`, 'red');
-  await addLine(`Type 'help' for available commands.`, 'dim');
-}
+## `$ ping` — Connect with Me
 
-async function startTerminal() {
-  promptRow.classList.add('visible');
-  await new Promise(res => setTimeout(res, 200));
+<p align="left">
+  <a href="https://linkedin.com/in/aryan-raj-072138375" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-Aryan%20Raj-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0a0e0a" />
+  </a>
+  &nbsp;
+  <a href="mailto:aryanraj1092@gmail.com">
+    <img src="https://img.shields.io/badge/Gmail-aryanraj1092-EA4335?style=for-the-badge&logo=gmail&logoColor=white&labelColor=0a0e0a" />
+  </a>
+  &nbsp;
+  <a href="https://github.com/Aryan1092raj" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-Aryan1092raj-00ff41?style=for-the-badge&logo=github&logoColor=white&labelColor=0a0e0a" />
+  </a>
+</p>
 
-  const welcome = [
-    { t:"bright", v:"╔══════════════════════════════════════════╗" },
-    { t:"bright", v:"║          WELCOME TO ARYANOS v1.0          ║" },
-    { t:"bright", v:"║    Electrical Engineering @ IIT Mandi     ║" },
-    { t:"bright", v:"╚══════════════════════════════════════════╝" },
-    { t:"",       v:"" },
-    { t:"dim",    v:"  Last login: today, IIT Mandi, HP, India" },
-    { t:"dim",    v:"  Kernel   : AryanOS 1.0 (C++ / Python / Linux)" },
-    { t:"dim",    v:"  Uptime   : since August 2024" },
-    { t:"",       v:"" },
-    { t:"amber",  v:"  Type 'help' to see all commands." },
-    { t:"",       v:"" },
-  ];
-  await renderRows(welcome);
-  cmdInput.focus();
-}
+---
 
-cmdInput.addEventListener('keydown', async (e) => {
-  if (e.key === 'Enter') {
-    const val = cmdInput.value;
-    cmdInput.value = '';
-    promptRow.style.opacity = '0';
-    await runCommand(val);
-    promptRow.style.opacity = '1';
-    cmdInput.focus();
-  } else if (e.key === 'ArrowUp') {
-    e.preventDefault();
-    if (histIdx < cmdHistory.length - 1) {
-      histIdx++;
-      cmdInput.value = cmdHistory[histIdx];
-    }
-  } else if (e.key === 'ArrowDown') {
-    e.preventDefault();
-    if (histIdx > 0) {
-      histIdx--;
-      cmdInput.value = cmdHistory[histIdx];
-    } else { histIdx = -1; cmdInput.value = ''; }
-  }
-});
+## `$ fortune` — Dev Quote
 
-document.getElementById('monitor').addEventListener('click', () => cmdInput.focus());
+<p align="center">
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=merko" alt="Dev Quote" />
+</p>
 
-// ── Matrix rain ────────────────────────────────────────────────────────────
-function startMatrix() {
-  const canvas = document.getElementById('matrix-canvas');
-  canvas.style.display = 'block';
-  canvas.width  = window.innerWidth;
-  canvas.height = window.innerHeight;
-  const ctx = canvas.getContext('2d');
-  const cols = Math.floor(canvas.width / 18);
-  const drops = Array(cols).fill(1);
-  const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノ01ABCDEFX#$@!IITMANDI⚡';
+> *"To understand recursion, you must first understand recursion."*
 
-  function draw() {
-    ctx.fillStyle = 'rgba(0,0,0,0.05)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = '#00ff41';
-    ctx.font = '16px Share Tech Mono, monospace';
-    for (let i = 0; i < drops.length; i++) {
-      const ch = chars[Math.floor(Math.random() * chars.length)];
-      ctx.fillText(ch, i * 18, drops[i] * 18);
-      if (drops[i] * 18 > canvas.height && Math.random() > 0.975) drops[i] = 0;
-      drops[i]++;
-    }
-  }
-  const raf = setInterval(draw, 50);
+---
 
-  function stopMatrix() {
-    clearInterval(raf);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    canvas.style.display = 'none';
-    canvas.removeEventListener('click', stopMatrix);
-    document.removeEventListener('keydown', stopMatrix);
-  }
-  setTimeout(() => {
-    canvas.addEventListener('click', stopMatrix);
-    document.addEventListener('keydown', stopMatrix);
-  }, 300);
-}
-</script>
-</body>
-</html>
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00ff41,50:00aa2e,100:0a0e0a&height=100&section=footer&fontColor=00ff41" alt="Footer" />
+</p>
+
+<p align="center">
+  <code>⚡ Always blending code, circuits, and logic to turn theory into working systems.</code>
+</p>
