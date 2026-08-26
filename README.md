@@ -1,5 +1,6 @@
+
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:000000,50:111111,100:1a1a1a&height=200&section=header&text=Aryan%20Raj&fontSize=70&fontColor=ffffff&fontAlignY=38&desc=Electrical%20Engineering%20%40%20IIT%20Mandi&descAlignY=60&descSize=18&animation=fadeIn" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:000000,50:111111,100:1a1a1a&height=200&section=header&text=Aryan%20Raj&fontSize=70&fontColor=ffffff&fontAlignY=38&desc=Electrical%20Engineering%20%40%20IIT%20Mandi&descAlignY=60&descSize=18&animation=fadeIn" alt="Header" />
 </p>
 
 <p align="center">
@@ -7,10 +8,10 @@
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=Aryan1092raj&label=Profile+Views&color=ffffff&style=flat-square&labelColor=000000" />
-  <img src="https://img.shields.io/github/followers/Aryan1092raj?label=Followers&style=flat-square&color=ffffff&labelColor=000000&logo=github&logoColor=ffffff" />
-  <img src="https://img.shields.io/badge/Focus-Embedded%20Systems-ffffff?style=flat-square&labelColor=000000&color=333333" />
-  <img src="https://img.shields.io/badge/Year-1st%20%40%20IIT%20Mandi-ffffff?style=flat-square&labelColor=000000&color=333333" />
+  <img src="https://komarev.com/ghpvc/?username=Aryan1092raj&label=Profile+Views&color=ffffff&style=flat-square&labelColor=000000" alt="Views" />
+  <img src="https://img.shields.io/github/followers/Aryan1092raj?label=Followers&style=flat-square&color=ffffff&labelColor=000000&logo=github&logoColor=ffffff" alt="Followers" />
+  <img src="https://img.shields.io/badge/Focus-Embedded%20Systems-ffffff?style=flat-square&labelColor=000000&color=333333" alt="Focus" />
+  <img src="https://img.shields.io/badge/Year-1st%20%40%20IIT%20Mandi-ffffff?style=flat-square&labelColor=000000&color=333333" alt="Year" />
 </p>
 
 ---
@@ -41,8 +42,10 @@ public:
 ## 〉 skills
 
 <p align="left">
-  <img src="https://skillicons.dev/icons?i=cpp,python,bash,linux,git,github,vscode,arduino&theme=dark&perline=8" height="44" alt="Skills" />
+  <img src="https://skillicons.dev/icons?i=cpp,python,bash,linux,git,github,vscode,arduino&theme=dark&perline=8" alt="Skills" />
 </p>
+
+<br/>
 
 | Category | Stack |
 |---|---|
@@ -57,11 +60,11 @@ public:
 
 <p align="left">
   <a href="https://codeforces.com/profile/AryanRaj_1" target="_blank">
-    <img src="https://img.shields.io/badge/Codeforces-AryanRaj__1-1F8ACB?style=for-the-badge&logo=codeforces&logoColor=white&labelColor=000000" />
+    <img src="https://img.shields.io/badge/Codeforces-AryanRaj__1-1F8ACB?style=for-the-badge&logo=codeforces&logoColor=white&labelColor=000000" alt="Codeforces" />
   </a>
   &nbsp;
   <a href="https://leetcode.com/u/Dy9h5fmpvr/" target="_blank">
-    <img src="https://img.shields.io/badge/LeetCode-Dy9h5fmpvr-FFA116?style=for-the-badge&logo=leetcode&logoColor=black&labelColor=000000" />
+    <img src="https://img.shields.io/badge/LeetCode-Dy9h5fmpvr-FFA116?style=for-the-badge&logo=leetcode&logoColor=black&labelColor=000000" alt="LeetCode" />
   </a>
 </p>
 
@@ -71,22 +74,30 @@ public:
 
 ## 〉 github stats
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Aryan1092raj&show_icons=true&hide_border=true&count_private=true&include_all_commits=true&bg_color=000000&title_color=ffffff&icon_color=888888&text_color=cccccc&ring_color=ffffff" height="170" alt="GitHub Stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aryan1092raj&layout=compact&hide_border=true&langs_count=8&bg_color=000000&title_color=ffffff&text_color=cccccc" height="170" alt="Top Languages" />
-</p>
+<div align="center">
+  <img src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=Aryan1092raj&show_icons=true&hide_border=true&include_all_commits=true&bg_color=000000&title_color=ffffff&icon_color=888888&text_color=cccccc&ring_color=ffffff&cache_seconds=86400" alt="GitHub Stats" />
+  <img src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/top-langs/?username=Aryan1092raj&layout=compact&hide_border=true&langs_count=8&bg_color=000000&title_color=ffffff&text_color=cccccc&cache_seconds=86400" alt="Top Languages" />
+</div>
 
-<p align="center">
-  <img src="https://streak-stats.demolab.com?user=Aryan1092raj&hide_border=true&background=000000&ring=ffffff&fire=cccccc&currStreakLabel=ffffff&sideLabels=888888&currStreakNum=ffffff&sideNums=cccccc&dates=555555&stroke=222222" height="170" alt="GitHub Streak" />
-</p>
+<br/>
+
+<div align="center">
+  <img src="https://nirzak-streak-stats.vercel.app/?user=Aryan1092raj&hide_border=true&background=000000&ring=ffffff&fire=cccccc&currStreakLabel=ffffff&sideLabels=888888&currStreakNum=ffffff&sideNums=cccccc&dates=555555&stroke=222222" alt="GitHub Streak" />
+</div>
 
 ---
 
 ## 〉 activity graph
 
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Aryan1092raj&theme=github-compact&hide_border=true&area=true&bg_color=000000&color=ffffff&line=888888&point=ffffff&area_color=111111" alt="Contribution Graph" />
-</p>
+<div align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Aryan1092raj&theme=github_dark" alt="Profile Details" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/888888/Aryan1092raj" alt="Contribution Chart" />
+</div>
 
 ---
 
@@ -94,15 +105,15 @@ public:
 
 <p align="left">
   <a href="https://linkedin.com/in/aryan-raj-072138375" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-Aryan%20Raj-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=000000" />
+    <img src="https://img.shields.io/badge/LinkedIn-Aryan%20Raj-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=000000" alt="LinkedIn" />
   </a>
   &nbsp;
   <a href="mailto:aryanraj1092@gmail.com">
-    <img src="https://img.shields.io/badge/Gmail-aryanraj1092-EA4335?style=for-the-badge&logo=gmail&logoColor=white&labelColor=000000" />
+    <img src="https://img.shields.io/badge/Gmail-aryanraj1092-EA4335?style=for-the-badge&logo=gmail&logoColor=white&labelColor=000000" alt="Gmail" />
   </a>
   &nbsp;
   <a href="https://github.com/Aryan1092raj" target="_blank">
-    <img src="https://img.shields.io/badge/GitHub-Aryan1092raj-ffffff?style=for-the-badge&logo=github&logoColor=black&labelColor=000000" />
+    <img src="https://img.shields.io/badge/GitHub-Aryan1092raj-ffffff?style=for-the-badge&logo=github&logoColor=black&labelColor=000000" alt="GitHub" />
   </a>
 </p>
 
