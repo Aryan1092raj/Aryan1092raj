@@ -1,0 +1,47 @@
+<svg width="1200" height="330" viewBox="0 0 1200 330" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="accent" x1="60" y1="40" x2="1130" y2="285" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#48CAE4"/>
+      <stop offset="0.5" stop-color="#9B5DE5"/>
+      <stop offset="1" stop-color="#FF6B35"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" stroke="#171717" stroke-width="1"/>
+    </pattern>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="330" rx="8" fill="#050505"/>
+  <rect width="1200" height="330" rx="8" fill="url(#grid)"/>
+  <rect x="1" y="1" width="1198" height="328" rx="7" stroke="#252525"/>
+
+  <path d="M0 270C140 235 190 290 330 256C470 222 520 276 650 246C790 214 850 264 980 230C1080 204 1130 226 1200 208" stroke="url(#accent)" stroke-width="2" opacity=".35"/>
+  <path d="M0 270C140 235 190 290 330 256C470 222 520 276 650 246C790 214 850 264 980 230C1080 204 1130 226 1200 208" stroke="url(#accent)" stroke-width="2" stroke-dasharray="10 18" filter="url(#glow)">
+    <animate attributeName="stroke-dashoffset" from="0" to="-112" dur="3s" repeatCount="indefinite"/>
+  </path>
+
+  <g font-family="monospace">
+    <text x="60" y="54" fill="#747474" font-size="14">ARYAN.RAJ / SIGNAL CONSOLE / 2026</text>
+    <circle cx="1086" cy="48" r="6" fill="#48CAE4" filter="url(#glow)">
+      <animate attributeName="opacity" values="1;.25;1" dur="1.4s" repeatCount="indefinite"/>
+    </circle>
+    <text x="1102" y="54" fill="#48CAE4" font-size="13">ONLINE</text>
+
+    <text x="58" y="137" fill="#F5F5F5" font-size="66" font-weight="700">ARYAN RAJ</text>
+    <text x="62" y="174" fill="#B8B8B8" font-size="19">Electrical Engineering · IIT Mandi</text>
+    <text x="62" y="215" fill="url(#accent)" font-size="17">Python  /  C++  /  FastAPI  /  Next.js  /  React</text>
+    <text x="62" y="246" fill="#777777" font-size="16">RAG  ·  GenSI  ·  LangChain</text>
+
+    <text x="907" y="137" fill="#777777" font-size="13">BUILD STATUS</text>
+    <text x="907" y="171" fill="#F5F5F5" font-size="24">CURIOUS → USEFUL</text>
+    <rect x="907" y="191" width="216" height="5" fill="#252525"/>
+    <rect x="907" y="191" width="146" height="5" fill="url(#accent)">
+      <animate attributeName="width" values="40;216;146" dur="4s" repeatCount="indefinite"/>
+    </rect>
+    <text x="907" y="226" fill="#666666" font-size="13">prototype · test · deploy · repeat</text>
+  </g>
+</svg>
+
