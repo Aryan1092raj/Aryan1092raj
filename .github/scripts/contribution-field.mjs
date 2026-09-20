@@ -52,7 +52,8 @@ for (let col = 0; col < 52; col += 1) {
 }
 
 const activeDays = cells.filter((item) => item.count > 0).length;
-const hot = cells.filter((item) => item.count > 0).sort((a, b) => b.count - a.count).slice(0, 12);
+const totalContributions = cells.reduce((sum, item) => sum + item.count, 0);
+const hot = cells.filter((item) => item.count > 0).sort((a, b) => b.count - a.count).slice(0, 8);
 
 const heatmap = cells.map((item) =>
   '<rect x="' + item.x + '" y="' + item.y + '" width="' + cell + '" height="' + cell + '" rx="3" fill="' + color(item.count) + '"/>'
@@ -62,63 +63,67 @@ const pulses = hot.map((item, index) => {
   const cx = item.x + cell / 2;
   const cy = item.y + cell / 2;
   const delay = (index * 0.35).toFixed(2);
-  return '<circle cx="' + cx + '" cy="' + cy + '" r="4" fill="none" stroke="#fff" opacity="0">' +
-    '<animate attributeName="r" values="4;13;4" dur="2.8s" begin="' + delay + 's" repeatCount="indefinite"/>' +
-    '<animate attributeName="opacity" values="0;.8;0" dur="2.8s" begin="' + delay + 's" repeatCount="indefinite"/>' +
+  return '<circle cx="' + cx + '" cy="' + cy + '" r="3" fill="none" stroke="#f7f7f2" opacity="0">' +
+    '<animate attributeName="r" values="3;11;3" dur="2.5s" begin="' + delay + 's" repeatCount="indefinite"/>' +
+    '<animate attributeName="opacity" values="0;.7;0" dur="2.5s" begin="' + delay + 's" repeatCount="indefinite"/>' +
     '</circle>';
 }).join('');
 
-const roverPath = 'M 78 316 C 240 286 390 340 560 310 S 866 282 1032 316';
+const snakePathParts = ['M ' + (gridX + cell / 2) + ' ' + (gridY + cell / 2)];
+for (let row = 0; row < rows; row += 1) {
+  const y = gridY + row * (cell + gap) + cell / 2;
+  const left = gridX + cell / 2;
+  const right = gridX + (52 - 1) * (cell + gap) + cell / 2;
+  snakePathParts.push(row % 2 === 0 ? 'H ' + right : 'H ' + left);
+  if (row < rows - 1) snakePathParts.push('V ' + (y + cell + gap));
+}
+const snakePath = snakePathParts.join(' ');
 
-const rover = [
-  '<g>',
-  '<path d="M -8 -18 L -52 -162 L 52 -162 Z" fill="url(#beam)" opacity=".09"><animate attributeName="opacity" values=".03;.15;.03" dur="2.2s" repeatCount="indefinite"/></path>',
-  '<line x1="0" y1="-18" x2="0" y2="-162" stroke="#48cae4" stroke-width="1" stroke-dasharray="3 8" opacity=".65"><animate attributeName="stroke-dashoffset" from="0" to="-22" dur="1s" repeatCount="indefinite"/></line>',
-  '<rect x="-25" y="-20" width="50" height="22" rx="5" fill="url(#rover)" stroke="#48cae4" stroke-width="1.5"/>',
-  '<rect x="-13" y="-28" width="26" height="10" rx="3" fill="#0d1117" stroke="#8b5cf6" stroke-width="1"/>',
-  '<circle cx="0" cy="-23" r="3" fill="#ff6b35" filter="url(#glow)"><animate attributeName="opacity" values="1;.25;1" dur="1.1s" repeatCount="indefinite"/></circle>',
-  '<line x1="0" y1="-29" x2="0" y2="-42" stroke="#b8f3ff" stroke-width="1.5"/>',
-  '<circle cx="0" cy="-45" r="3" fill="#48cae4" filter="url(#glow)"><animate attributeName="r" values="2;5;2" dur="1.6s" repeatCount="indefinite"/></circle>',
-  '<g fill="#171d28" stroke="#48cae4" stroke-width="1">',
-  '<circle cx="-17" cy="5" r="8"/><circle cx="17" cy="5" r="8"/>',
-  '</g>',
-  '<path d="M -25 -7 H 25" stroke="#ff6b35" stroke-width="2"><animate attributeName="stroke-dashoffset" from="0" to="-20" dur=".8s" repeatCount="indefinite"/></path>',
-  '<text x="30" y="-12" fill="#f5f5f5" font-family="monospace" font-size="11">ROVER-01</text>',
-  '<text x="30" y="3" fill="#777" font-family="monospace" font-size="9">SCANNING</text>',
-  '<animateMotion dur="14s" repeatCount="indefinite" path="' + roverPath + '"/>',
+const snakeSegments = Array.from({ length: 16 }, (_, index) => {
+  const delay = (index * -0.06).toFixed(2);
+  const size = Math.max(5, 11 - Math.floor(index / 5));
+  const colorValue = index === 0 ? '#f7f7f2' : index < 4 ? '#a7f3d0' : '#22d3ee';
+  return '<rect x="-' + size / 2 + '" y="-' + size / 2 + '" width="' + size + '" height="' + size + '" rx="' + Math.min(3, size / 3) + '" fill="' + colorValue + '" opacity="' + (1 - index * 0.045).toFixed(2) + '" filter="url(#glow)">' +
+    '<animateMotion dur="34s" begin="' + delay + 's" repeatCount="indefinite" path="' + snakePath + '" rotate="auto"/>' +
+    '</rect>';
+}).join('');
+
+const snakeHead = [
+  '<g filter="url(#glow)">',
+  '<rect x="-6" y="-6" width="12" height="12" rx="4" fill="#f7f7f2" stroke="#22d3ee" stroke-width="2">',
+  '<animateMotion dur="34s" repeatCount="indefinite" path="' + snakePath + '" rotate="auto"/>',
+  '</rect>',
+  '<circle cx="-2" cy="-2" r="1.2" fill="#050505"><animateMotion dur="34s" repeatCount="indefinite" path="' + snakePath + '" rotate="auto"/></circle>',
+  '<circle cx="2" cy="-2" r="1.2" fill="#050505"><animateMotion dur="34s" repeatCount="indefinite" path="' + snakePath + '" rotate="auto"/></circle>',
   '</g>',
 ].join('');
 
 const svg = [
   '<svg width="1120" height="390" viewBox="0 0 1120 390" xmlns="http://www.w3.org/2000/svg">',
-  '<title>Rover scanning Aryan Raj GitHub contributions</title>',
+  '<title>Animated contribution snake for Aryan Raj</title>',
   '<defs>',
-  '<linearGradient id="field" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#48cae4"/><stop offset=".52" stop-color="#8b5cf6"/><stop offset="1" stop-color="#ff6b35"/></linearGradient>',
-  '<linearGradient id="rover" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#172033"/><stop offset="1" stop-color="#0d1117"/></linearGradient>',
-  '<linearGradient id="beam" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#48cae4"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient>',
+  '<linearGradient id="field" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#22d3ee"/><stop offset=".55" stop-color="#a7f3d0"/><stop offset="1" stop-color="#f97316"/></linearGradient>',
   '<filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>',
   '</defs>',
   '<rect width="1120" height="390" rx="12" fill="#050505" stroke="#242424"/>',
   '<path d="M32 76H1088" stroke="#171717"/>',
-  '<text x="34" y="36" fill="#f5f5f5" font-family="monospace" font-size="16" font-weight="700">CONTRIBUTION ROVER / MISSION 01</text>',
-  '<circle cx="1080" cy="31" r="5" fill="#48cae4" filter="url(#glow)"><animate attributeName="opacity" values="1;.2;1" dur="1.4s" repeatCount="indefinite"/></circle>',
-  '<text x="1000" y="53" fill="#48cae4" font-family="monospace" font-size="10">MISSION ACTIVE</text>',
-  '<text x="34" y="62" fill="#777" font-family="monospace" font-size="11">ROVER-01 / 52-WEEK CONTRIBUTION TERRAIN / LIVE FROM GITHUB</text>',
-  '<g transform="translate(695 18)">',
-  '<rect width="120" height="42" rx="5" fill="#0b0e14" stroke="#242424"/><text x="12" y="16" fill="#777" font-family="monospace" font-size="9">ACTIVE DAYS</text><text x="12" y="34" fill="#f5f5f5" font-family="monospace" font-size="16" font-weight="700">' + activeDays + '</text>',
-  '<rect x="130" width="120" height="42" rx="5" fill="#0b0e14" stroke="#242424"/><text x="142" y="16" fill="#777" font-family="monospace" font-size="9">PEAK SIGNAL</text><text x="142" y="34" fill="#ff6b35" font-family="monospace" font-size="16" font-weight="700">' + max + '</text>',
-  '<rect x="260" width="120" height="42" rx="5" fill="#0b0e14" stroke="#242424"/><text x="272" y="16" fill="#777" font-family="monospace" font-size="9">TARGETS</text><text x="272" y="34" fill="#48cae4" font-family="monospace" font-size="16" font-weight="700">' + hot.length + '</text>',
+  '<text x="34" y="36" fill="#f5f5f2" font-family="monospace" font-size="16" font-weight="700">CONTRIBUTION SNAKE</text>',
+  '<circle cx="1080" cy="31" r="5" fill="#a7f3d0" filter="url(#glow)"><animate attributeName="opacity" values="1;.2;1" dur="1.4s" repeatCount="indefinite"/></circle>',
+  '<text x="990" y="53" fill="#a7f3d0" font-family="monospace" font-size="10">AUTO-RUNNING</text>',
+  '<text x="34" y="62" fill="#777" font-family="monospace" font-size="11">52 WEEKS / 7 DAYS / REAL GITHUB CONTRIBUTIONS</text>',
+  '<g transform="translate(630 18)">',
+  '<rect width="138" height="42" rx="5" fill="#0b0e14" stroke="#242424"/><text x="12" y="16" fill="#777" font-family="monospace" font-size="9">ACTIVE DAYS</text><text x="12" y="34" fill="#f5f5f2" font-family="monospace" font-size="16" font-weight="700">' + activeDays + '</text>',
+  '<rect x="148" width="138" height="42" rx="5" fill="#0b0e14" stroke="#242424"/><text x="160" y="16" fill="#777" font-family="monospace" font-size="9">TOTAL CONTRIBUTIONS</text><text x="160" y="34" fill="#a7f3d0" font-family="monospace" font-size="16" font-weight="700">' + totalContributions + '</text>',
+  '<rect x="296" width="138" height="42" rx="5" fill="#0b0e14" stroke="#242424"/><text x="308" y="16" fill="#777" font-family="monospace" font-size="9">BEST DAY</text><text x="308" y="34" fill="#f97316" font-family="monospace" font-size="16" font-weight="700">' + max + '</text>',
   '</g>',
   '<g>' + heatmap + '</g>',
-  '<rect x="68" y="110" width="2" height="132" fill="url(#field)" filter="url(#glow)"><animate attributeName="x" values="68;1055;68" dur="8s" repeatCount="indefinite"/></rect>',
   '<g>' + pulses + '</g>',
-  '<path d="' + roverPath + '" stroke="#1d2939" stroke-width="2" fill="none"/>',
-  '<path d="' + roverPath + '" stroke="url(#field)" stroke-width="2" stroke-dasharray="7 15" fill="none"><animate attributeName="stroke-dashoffset" from="0" to="-88" dur="2.4s" repeatCount="indefinite"/></path>',
-  rover,
+  '<path d="' + snakePath + '" stroke="#1b2830" stroke-width="2" fill="none" stroke-dasharray="2 8" opacity=".7"/>',
+  '<g>' + snakeSegments + snakeHead + '</g>',
   '<text x="74" y="370" fill="#666" font-family="monospace" font-size="10">QUIET</text>',
   '<rect x="116" y="362" width="13" height="13" rx="3" fill="#111318"/><rect x="137" y="362" width="13" height="13" rx="3" fill="#12303a"/><rect x="158" y="362" width="13" height="13" rx="3" fill="#0e7490"/><rect x="179" y="362" width="13" height="13" rx="3" fill="#06b6d4"/><rect x="200" y="362" width="13" height="13" rx="3" fill="#8b5cf6"/><rect x="221" y="362" width="13" height="13" rx="3" fill="#ff6b35"/>',
   '<text x="244" y="372" fill="#666" font-family="monospace" font-size="10">LOUD</text>',
-  '<text x="890" y="372" fill="#777" font-family="monospace" font-size="10">PULSE = HIGH ACTIVITY</text>',
+  '<text x="875" y="372" fill="#777" font-family="monospace" font-size="10">SNAKE FOLLOWS YOUR CONTRIBUTIONS</text>',
   '</svg>',
 ].join('\n');
 
