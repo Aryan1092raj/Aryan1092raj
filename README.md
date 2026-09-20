@@ -139,30 +139,7 @@ Local-first codebase intelligence using a Kuzu knowledge graph, decay scoring, h
 
 ---
 
-## 04 / Experience
-
-| When | Where | What |
-|:---|:---|:---|
-| Jul 2026 — Present | SnTC, IIT Mandi | Core Member |
-| Jun 2026 — Jul 2026 | Centre for Continuing Education | Class Coordinator, Prayas 4.0 |
-| May 2026 — Present | Robotronics Club | ProjectX LMS Team |
-| Apr 2026 — Present | Guiding and Counselling Cell | Student Volunteer |
-| Sep 2025 — Mar 2026 | Team Deimos Mars Rover Team | Sponsorship |
-
----
-
-## 05 / Open-source trail
-
-**GirlScript Summer of Code 2026** — ranked **1,814th globally**, top 5% of 43,587 participants, with **5 merged PRs across 4 repositories**.
-
-- **bashmanager** — added a script-abort mechanism for runaway processes.
-- **HELPDESK.AI** — fixed a voice visualizer freeze caused by a SpeechRecognition auto-pause race.
-- **AlgoBuddy** — improved responsive layouts for graph visualizer and refresh pages.
-- **PrepIQ** — fixed event bubbling and mock score normalization.
-
----
-
-## 06 / Stack
+## 04 / Stack
 
 <div align="center">
 
@@ -180,7 +157,7 @@ Local-first codebase intelligence using a Kuzu knowledge graph, decay scoring, h
 
 ---
 
-## 07 / Competitive programming
+## 05 / Competitive programming
 
 <div align="center">
 
@@ -199,7 +176,7 @@ Local-first codebase intelligence using a Kuzu knowledge graph, decay scoring, h
 
 ---
 
-## 08 / Contribution motion
+## 06 / Contribution motion
 
 <div align="center">
 
