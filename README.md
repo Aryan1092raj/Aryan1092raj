@@ -184,14 +184,16 @@ Local-first codebase intelligence using a Kuzu knowledge graph, decay scoring, h
 
 <div align="center">
 
-<a href="https://codeforces.com/profile/Auxear"><img src="https://img.shields.io/badge/CODEFORCES-Auxear-050505?style=for-the-badge&logo=codeforces&logoColor=48cae4&labelColor=050505" alt="Codeforces Auxear" /></a>
-<a href="https://leetcode.com/u/Dy9h5fmpvr"><img src="https://img.shields.io/badge/LEETCODE-Dy9h5fmpvr-050505?style=for-the-badge&logo=leetcode&logoColor=ffb000&labelColor=050505" alt="LeetCode Dy9h5fmpvr" /></a>
+<p>
+  <a href="https://codeforces.com/profile/Auxear"><img src="https://img.shields.io/badge/CODEFORCES-Auxear-050505?style=for-the-badge&logo=codeforces&logoColor=48cae4&labelColor=050505" alt="Codeforces Auxear" /></a>
+  <a href="https://leetcode.com/u/Dy9h5fmpvr"><img src="https://img.shields.io/badge/LEETCODE-Dy9h5fmpvr-050505?style=for-the-badge&logo=leetcode&logoColor=ffb000&labelColor=050505" alt="LeetCode Dy9h5fmpvr" /></a>
+</p>
 
-<br />
-
-<a href="https://codeforces.com/profile/Auxear">Codeforces profile → Auxear</a>
-&nbsp; · &nbsp;
-<a href="https://leetcode.com/u/Dy9h5fmpvr">LeetCode profile → Dy9h5fmpvr</a>
+<p>
+  <a href="https://codeforces.com/profile/Auxear">Codeforces profile → Auxear</a>
+  &nbsp; · &nbsp;
+  <a href="https://leetcode.com/u/Dy9h5fmpvr">LeetCode profile → Dy9h5fmpvr</a>
+</p>
 
 </div>
 
@@ -201,9 +203,7 @@ Local-first codebase intelligence using a Kuzu knowledge graph, decay scoring, h
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/Aryan1092raj/output/github-contribution-grid-snake-dark.svg" alt="Animated GitHub contribution snake" width="95%" />
-
-<br />
+<img src="https://github.com/Aryan1092raj/Aryan1092raj/raw/refs/heads/output/github-contribution-grid-snake-dark.svg" alt="Animated GitHub contribution snake" width="95%" />
 
 <sub>Regenerated automatically every day by GitHub Actions.</sub>
 
@@ -215,12 +215,7 @@ Local-first codebase intelligence using a Kuzu knowledge graph, decay scoring, h
 
 <a href="mailto:aryanraj1092@gmail.com">Let’s build something useful.</a>
 
-<br /><br />
-
-<sub>Recursion joke: if you reached the end, you found the base case. If not, scroll up and call this README again.</sub>
-
-<br /><br />
-
-<sub>© Aryan Raj · IIT Mandi</sub>
+<p><sub>Recursion joke: if you reached the end, you found the base case. If not, scroll up and call this README again.</sub></p>
+<p><sub>© Aryan Raj · IIT Mandi</sub></p>
 
 </div>
