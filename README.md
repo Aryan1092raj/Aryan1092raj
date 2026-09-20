@@ -1,18 +1,20 @@
 <div align="center">
 
-<img src="./assets/aryan-signal.svg" alt="Aryan Raj animated signal console" width="100%" />
+<img src="./assets/aryan-signal.svg" alt="Aryan Raj deep space build log" width="100%" />
 
 <p>
-  <a href="https://github.com/Aryan1092raj"><img src="https://img.shields.io/badge/GITHUB-Aryan1092raj-050505?style=for-the-badge&logo=github&logoColor=ffffff&labelColor=050505" alt="GitHub" /></a>
-  <a href="mailto:aryanraj1092@gmail.com"><img src="https://img.shields.io/badge/EMAIL-aryanraj1092%40gmail.com-050505?style=for-the-badge&logo=gmail&logoColor=ff6b35&labelColor=050505" alt="Email" /></a>
-  <a href="https://linkedin.com/in/aryan-raj-iitmd"><img src="https://img.shields.io/badge/LINKEDIN-aryan--raj--iitmd-050505?style=for-the-badge&logo=linkedin&logoColor=48cae4&labelColor=050505" alt="LinkedIn" /></a>
+  <a href="https://github.com/Aryan1092raj"><img src="https://img.shields.io/badge/GITHUB-Aryan1092raj-0B0B15?style=for-the-badge&logo=github&logoColor=F5F5FF&labelColor=0B0B15" alt="GitHub" /></a>
+  <a href="mailto:aryanraj1092@gmail.com"><img src="https://img.shields.io/badge/EMAIL-aryanraj1092%40gmail.com-0B0B15?style=for-the-badge&logo=gmail&logoColor=FF8A4C&labelColor=0B0B15" alt="Email" /></a>
+  <a href="https://linkedin.com/in/aryan-raj-iitmd"><img src="https://img.shields.io/badge/LINKEDIN-aryan--raj--iitmd-0B0B15?style=for-the-badge&logo=linkedin&logoColor=22D3EE&labelColor=0B0B15" alt="LinkedIn" /></a>
 </p>
+
+<sub>Software, intelligent systems, and the occasional trip past the event horizon.</sub>
 
 </div>
 
 ---
 
-## 01 / Profile
+## ✦ Profile orbit
 
 I’m Aryan Raj, an Electrical Engineering student at IIT Mandi building at the intersection of **software, intelligent systems, and real-world constraints**.
 
@@ -20,7 +22,7 @@ The interesting part is not making an LLM answer. It is making the whole system 
 
 <div align="center">
 
-| BASE | CURRENT VECTOR | OUTPUT |
+| ORIGIN | CURRENT ORBIT | SIGNAL |
 |:---:|:---:|:---:|
 | IIT Mandi · Electrical Engineering | Python · C++ · FastAPI · Next.js · React | RAG · GenSI · LangChain |
 
@@ -28,7 +30,7 @@ The interesting part is not making an LLM answer. It is making the whole system 
 
 ---
 
-## 02 / Signal console
+## ◌ Current orbit
 
 <table>
 <tr>
@@ -63,7 +65,7 @@ Make the hard part observable. Make the useful part easy to reach.
 
 ---
 
-## 03 / Selected builds
+## ✧ Selected builds
 
 <table>
 <tr>
@@ -129,7 +131,7 @@ Local-first codebase intelligence using a Kuzu knowledge graph, decay scoring, h
 </table>
 
 <details>
-<summary><strong>Other experiments</strong></summary>
+<summary><strong>Other signals</strong></summary>
 
 - **Galaxy Morphology Classifier** — ResNet-18 transfer learning on the Galaxy Zoo dataset.
 - **Apophis Orbital Simulation** — adaptive RK4 integration and close-approach analysis for asteroid 99942 Apophis.
@@ -139,7 +141,7 @@ Local-first codebase intelligence using a Kuzu knowledge graph, decay scoring, h
 
 ---
 
-## 04 / Stack
+## ◈ Stack
 
 <div align="center">
 
@@ -157,13 +159,13 @@ Local-first codebase intelligence using a Kuzu knowledge graph, decay scoring, h
 
 ---
 
-## 05 / Competitive programming
+## ⟡ Competitive programming
 
 <div align="center">
 
 <p>
-  <a href="https://codeforces.com/profile/Auxear"><img src="https://img.shields.io/badge/CODEFORCES-Auxear-050505?style=for-the-badge&logo=codeforces&logoColor=48cae4&labelColor=050505" alt="Codeforces Auxear" /></a>
-  <a href="https://leetcode.com/u/Dy9h5fmpvr"><img src="https://img.shields.io/badge/LEETCODE-Dy9h5fmpvr-050505?style=for-the-badge&logo=leetcode&logoColor=ffb000&labelColor=050505" alt="LeetCode Dy9h5fmpvr" /></a>
+  <a href="https://codeforces.com/profile/Auxear"><img src="https://img.shields.io/badge/CODEFORCES-Auxear-0B0B15?style=for-the-badge&logo=codeforces&logoColor=22D3EE&labelColor=0B0B15" alt="Codeforces Auxear" /></a>
+  <a href="https://leetcode.com/u/Dy9h5fmpvr"><img src="https://img.shields.io/badge/LEETCODE-Dy9h5fmpvr-0B0B15?style=for-the-badge&logo=leetcode&logoColor=FF8A4C&labelColor=0B0B15" alt="LeetCode Dy9h5fmpvr" /></a>
 </p>
 
 <p>
@@ -176,11 +178,11 @@ Local-first codebase intelligence using a Kuzu knowledge graph, decay scoring, h
 
 ---
 
-## 06 / Contribution motion
+## ✦ Contribution cosmos
 
 <div align="center">
 
-<img src="https://github.com/Aryan1092raj/Aryan1092raj/raw/refs/heads/output/contribution-field.svg" alt="Animated GitHub contribution field" width="100%" />
+<img src="https://github.com/Aryan1092raj/Aryan1092raj/raw/refs/heads/output/contribution-field.svg" alt="Animated contribution cosmos" width="100%" />
 
 <sub>Regenerated automatically every day from the real contribution calendar.</sub>
 
@@ -193,6 +195,6 @@ Local-first codebase intelligence using a Kuzu knowledge graph, decay scoring, h
 <a href="mailto:aryanraj1092@gmail.com">Let’s build something useful.</a>
 
 <p><sub>Recursion joke: if you reached the end, you found the base case. If not, scroll up and call this README again.</sub></p>
-<p><sub>© Aryan Raj · IIT Mandi</sub></p>
+<p><sub>© Aryan Raj · IIT Mandi · somewhere between the first commit and the next orbit</sub></p>
 
 </div>
