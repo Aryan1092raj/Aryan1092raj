@@ -1,4 +1,4 @@
-name: Refresh contribution snake
+name: Refresh contribution field
 
 on:
   schedule:
@@ -14,15 +14,21 @@ jobs:
       contents: write
     runs-on: ubuntu-latest
     steps:
-      - name: Generate contribution snake
-        uses: Platane/snk@v3
-        with:
-          github_user_name: Aryan1092raj
-          outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+      - name: Check out profile
+        uses: actions/checkout@v4
 
-      - name: Publish animation assets
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate contribution field
+        run: node .github/scripts/contribution-field.mjs
+        env:
+          GH_USERNAME: Aryan1092raj
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish animation asset
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output

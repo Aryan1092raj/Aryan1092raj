@@ -180,9 +180,9 @@ Local-first codebase intelligence using a Kuzu knowledge graph, decay scoring, h
 
 <div align="center">
 
-<img src="https://github.com/Aryan1092raj/Aryan1092raj/raw/refs/heads/output/github-contribution-grid-snake-dark.svg" alt="Animated GitHub contribution snake" width="95%" />
+<img src="https://github.com/Aryan1092raj/Aryan1092raj/raw/refs/heads/output/contribution-field.svg" alt="Animated GitHub contribution field" width="100%" />
 
-<sub>Regenerated automatically every day by GitHub Actions.</sub>
+<sub>Regenerated automatically every day from the real contribution calendar.</sub>
 
 </div>
 
