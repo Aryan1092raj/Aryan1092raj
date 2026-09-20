@@ -29,13 +29,13 @@ const rows = 7;
 const max = Math.max(...weeks.flatMap((week) => week.contributionDays.map((day) => day.contributionCount || 0)), 1);
 
 function color(count) {
-  if (!count) return '#111318';
+  if (!count) return '#0a0f1d';
   const ratio = count / max;
-  if (ratio < 0.2) return '#12303a';
-  if (ratio < 0.4) return '#0e7490';
-  if (ratio < 0.65) return '#06b6d4';
-  if (ratio < 0.85) return '#8b5cf6';
-  return '#ff6b35';
+  if (ratio < 0.2) return '#152442';
+  if (ratio < 0.4) return '#274b86';
+  if (ratio < 0.65) return '#5038a8';
+  if (ratio < 0.85) return '#9754d6';
+  return '#ff8a4c';
 }
 
 const cells = [];
@@ -62,68 +62,80 @@ const heatmap = cells.map((item) =>
 const pulses = hot.map((item, index) => {
   const cx = item.x + cell / 2;
   const cy = item.y + cell / 2;
-  const delay = (index * 0.35).toFixed(2);
+  const delay = (index * 0.42).toFixed(2);
   return '<circle cx="' + cx + '" cy="' + cy + '" r="3" fill="none" stroke="#f7f7f2" opacity="0">' +
-    '<animate attributeName="r" values="3;11;3" dur="2.5s" begin="' + delay + 's" repeatCount="indefinite"/>' +
-    '<animate attributeName="opacity" values="0;.7;0" dur="2.5s" begin="' + delay + 's" repeatCount="indefinite"/>' +
+    '<animate attributeName="r" values="3;10;3" dur="3.1s" begin="' + delay + 's" repeatCount="indefinite"/>' +
+    '<animate attributeName="opacity" values="0;.55;0" dur="3.1s" begin="' + delay + 's" repeatCount="indefinite"/>' +
     '</circle>';
 }).join('');
 
-const snakePathParts = ['M ' + (gridX + cell / 2) + ' ' + (gridY + cell / 2)];
-for (let row = 0; row < rows; row += 1) {
-  const y = gridY + row * (cell + gap) + cell / 2;
-  const left = gridX + cell / 2;
-  const right = gridX + (52 - 1) * (cell + gap) + cell / 2;
-  snakePathParts.push(row % 2 === 0 ? 'H ' + right : 'H ' + left);
-  if (row < rows - 1) snakePathParts.push('V ' + (y + cell + gap));
+const peaks = [];
+for (let col = 0; col < weeks.length; col += 1) {
+  const column = cells.filter((item) => item.x === gridX + col * (cell + gap));
+  const peak = column.reduce((best, item) => item.count > best.count ? item : best, column[0]);
+  peaks.push({ x: peak.x + cell / 2, y: peak.y + cell / 2 });
 }
-const snakePath = snakePathParts.join(' ');
+const activityPath = peaks.map((point, index) => (index === 0 ? 'M ' : ' L ') + point.x + ' ' + point.y).join('');
+const activityPulse = [
+  '<circle r="5" fill="#f7f7ff" filter="url(#glow)">',
+  '<animateMotion dur="16s" repeatCount="indefinite" path="' + activityPath + '" rotate="auto"/>',
+  '</circle>',
+  '<circle r="13" fill="none" stroke="#8b7cff" stroke-width="1" opacity=".5">',
+  '<animateMotion dur="16s" repeatCount="indefinite" path="' + activityPath + '" rotate="auto"/>',
+  '<animate attributeName="r" values="7;15;7" dur="1.4s" repeatCount="indefinite"/>',
+  '</circle>',
+].join('');
 
-const snakeSegments = Array.from({ length: 16 }, (_, index) => {
-  const delay = (index * -0.06).toFixed(2);
-  const size = Math.max(5, 11 - Math.floor(index / 5));
-  const colorValue = index === 0 ? '#f7f7f2' : index < 4 ? '#a7f3d0' : '#22d3ee';
-  return '<rect x="-' + size / 2 + '" y="-' + size / 2 + '" width="' + size + '" height="' + size + '" rx="' + Math.min(3, size / 3) + '" fill="' + colorValue + '" opacity="' + (1 - index * 0.045).toFixed(2) + '" filter="url(#glow)">' +
-    '<animateMotion dur="34s" begin="' + delay + 's" repeatCount="indefinite" path="' + snakePath + '" rotate="auto"/>' +
-    '</rect>';
+const stars = Array.from({ length: 72 }, (_, index) => {
+  const x = (index * 157) % 1110 + 5;
+  const y = (index * 83) % 346 + 7;
+  const radius = index % 9 === 0 ? 1.5 : index % 3 === 0 ? 1 : 0.6;
+  const opacity = (0.18 + (index % 6) * 0.08).toFixed(2);
+  const twinkle = index % 4 === 0
+    ? '<animate attributeName="opacity" values="' + opacity + ';.8;' + opacity + '" dur="' + (2.4 + index % 4) + 's" repeatCount="indefinite"/>'
+    : '';
+  return '<circle cx="' + x + '" cy="' + y + '" r="' + radius + '" fill="#dce7ff" opacity="' + opacity + '">' + twinkle + '</circle>';
 }).join('');
 
-const snakeHead = [
-  '<g filter="url(#glow)">',
-  '<rect x="-6" y="-6" width="12" height="12" rx="4" fill="#f7f7f2" stroke="#22d3ee" stroke-width="2">',
-  '<animateMotion dur="34s" repeatCount="indefinite" path="' + snakePath + '" rotate="auto"/>',
-  '</rect>',
-  '<circle cx="-2" cy="-2" r="1.2" fill="#050505"><animateMotion dur="34s" repeatCount="indefinite" path="' + snakePath + '" rotate="auto"/></circle>',
-  '<circle cx="2" cy="-2" r="1.2" fill="#050505"><animateMotion dur="34s" repeatCount="indefinite" path="' + snakePath + '" rotate="auto"/></circle>',
-  '</g>',
+const orbit = 'M 882 248 A 76 26 0 1 1 1034 248 A 76 26 0 1 1 882 248';
+const spaceScene = [
+  '<ellipse cx="958" cy="248" rx="76" ry="26" fill="none" stroke="#3d2d72" stroke-width="1" stroke-dasharray="2 7" opacity=".8"/>',
+  '<ellipse cx="958" cy="248" rx="58" ry="18" fill="none" stroke="#8b5cf6" stroke-width="1" opacity=".3"><animateTransform attributeName="transform" type="rotate" from="0 958 248" to="360 958 248" dur="12s" repeatCount="indefinite"/></ellipse>',
+  '<circle cx="958" cy="248" r="24" fill="#030308" stroke="#161326" stroke-width="7"/>',
+  '<circle cx="958" cy="248" r="30" fill="none" stroke="#ff8a4c" stroke-width="2" opacity=".8"><animate attributeName="stroke-dashoffset" from="0" to="-80" dur="3s" repeatCount="indefinite"/></circle>',
+  '<circle cx="958" cy="248" r="34" fill="none" stroke="#8b5cf6" stroke-width="3" stroke-dasharray="17 33" opacity=".55"><animateTransform attributeName="transform" type="rotate" from="0 958 248" to="360 958 248" dur="7s" repeatCount="indefinite"/></circle>',
+  '<circle r="4" fill="#f7f7ff" filter="url(#glow)"><animateMotion dur="8s" repeatCount="indefinite" path="' + orbit + '"/></circle>',
+  '<text x="928" y="294" fill="#847e9f" font-family="monospace" font-size="9">BLACK HOLE</text>',
 ].join('');
 
 const svg = [
-  '<svg width="1120" height="390" viewBox="0 0 1120 390" xmlns="http://www.w3.org/2000/svg">',
-  '<title>Animated contribution snake for Aryan Raj</title>',
+  '<svg width="1120" height="360" viewBox="0 0 1120 360" xmlns="http://www.w3.org/2000/svg">',
+  '<title>Contribution cosmos for Aryan Raj</title>',
   '<defs>',
-  '<linearGradient id="field" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#22d3ee"/><stop offset=".55" stop-color="#a7f3d0"/><stop offset="1" stop-color="#f97316"/></linearGradient>',
-  '<filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>',
+  '<filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>',
   '</defs>',
-  '<rect width="1120" height="390" rx="12" fill="#050505" stroke="#242424"/>',
-  '<path d="M32 76H1088" stroke="#171717"/>',
-  '<text x="34" y="36" fill="#f5f5f2" font-family="monospace" font-size="16" font-weight="700">CONTRIBUTION SNAKE</text>',
-  '<circle cx="1080" cy="31" r="5" fill="#a7f3d0" filter="url(#glow)"><animate attributeName="opacity" values="1;.2;1" dur="1.4s" repeatCount="indefinite"/></circle>',
-  '<text x="990" y="53" fill="#a7f3d0" font-family="monospace" font-size="10">AUTO-RUNNING</text>',
-  '<text x="34" y="62" fill="#777" font-family="monospace" font-size="11">52 WEEKS / 7 DAYS / REAL GITHUB CONTRIBUTIONS</text>',
-  '<g transform="translate(630 18)">',
-  '<rect width="138" height="42" rx="5" fill="#0b0e14" stroke="#242424"/><text x="12" y="16" fill="#777" font-family="monospace" font-size="9">ACTIVE DAYS</text><text x="12" y="34" fill="#f5f5f2" font-family="monospace" font-size="16" font-weight="700">' + activeDays + '</text>',
-  '<rect x="148" width="138" height="42" rx="5" fill="#0b0e14" stroke="#242424"/><text x="160" y="16" fill="#777" font-family="monospace" font-size="9">TOTAL CONTRIBUTIONS</text><text x="160" y="34" fill="#a7f3d0" font-family="monospace" font-size="16" font-weight="700">' + totalContributions + '</text>',
-  '<rect x="296" width="138" height="42" rx="5" fill="#0b0e14" stroke="#242424"/><text x="308" y="16" fill="#777" font-family="monospace" font-size="9">BEST DAY</text><text x="308" y="34" fill="#f97316" font-family="monospace" font-size="16" font-weight="700">' + max + '</text>',
+  '<rect width="1120" height="360" rx="12" fill="#05050a" stroke="#24243a"/>',
+  '<g>' + stars + '</g>',
+  '<path d="M32 76H1088" stroke="#17172b"/>',
+  '<text x="34" y="36" fill="#f5f5ff" font-family="monospace" font-size="16" font-weight="700">CONTRIBUTION COSMOS</text>',
+  '<text x="34" y="59" fill="#77738d" font-family="monospace" font-size="11">LAST 52 WEEKS / UPDATED DAILY</text>',
+  '<g transform="translate(650 18)">',
+  '<rect width="135" height="42" rx="5" fill="#0b0b15" stroke="#24243a"/><text x="12" y="16" fill="#77738d" font-family="monospace" font-size="9">ACTIVE DAYS</text><text x="12" y="34" fill="#f5f5ff" font-family="monospace" font-size="16" font-weight="700">' + activeDays + '</text>',
+  '<rect x="145" width="135" height="42" rx="5" fill="#0b0b15" stroke="#24243a"/><text x="157" y="16" fill="#77738d" font-family="monospace" font-size="9">CONTRIBUTIONS</text><text x="157" y="34" fill="#a78bfa" font-family="monospace" font-size="16" font-weight="700">' + totalContributions + '</text>',
+  '<rect x="290" width="135" height="42" rx="5" fill="#0b0b15" stroke="#24243a"/><text x="302" y="16" fill="#77738d" font-family="monospace" font-size="9">BUSIEST DAY</text><text x="302" y="34" fill="#ff8a4c" font-family="monospace" font-size="16" font-weight="700">' + max + '</text>',
   '</g>',
   '<g>' + heatmap + '</g>',
   '<g>' + pulses + '</g>',
-  '<path d="' + snakePath + '" stroke="#1b2830" stroke-width="2" fill="none" stroke-dasharray="2 8" opacity=".7"/>',
-  '<g>' + snakeSegments + snakeHead + '</g>',
-  '<text x="74" y="370" fill="#666" font-family="monospace" font-size="10">QUIET</text>',
-  '<rect x="116" y="362" width="13" height="13" rx="3" fill="#111318"/><rect x="137" y="362" width="13" height="13" rx="3" fill="#12303a"/><rect x="158" y="362" width="13" height="13" rx="3" fill="#0e7490"/><rect x="179" y="362" width="13" height="13" rx="3" fill="#06b6d4"/><rect x="200" y="362" width="13" height="13" rx="3" fill="#8b5cf6"/><rect x="221" y="362" width="13" height="13" rx="3" fill="#ff6b35"/>',
-  '<text x="244" y="372" fill="#666" font-family="monospace" font-size="10">LOUD</text>',
-  '<text x="875" y="372" fill="#777" font-family="monospace" font-size="10">SNAKE FOLLOWS YOUR CONTRIBUTIONS</text>',
+  '<path d="' + activityPath + '" stroke="#8b5cf6" stroke-width="1.2" fill="none" opacity=".22"/>',
+  '<path d="' + activityPath + '" stroke="#f7f7ff" stroke-width="1.4" fill="none" stroke-dasharray="1 18" opacity=".65"><animate attributeName="stroke-dashoffset" from="0" to="-76" dur="2.8s" repeatCount="indefinite"/></path>',
+  '<g>' + activityPulse + '</g>',
+  '<g>' + spaceScene + '</g>',
+  '<text x="74" y="274" fill="#a78bfa" font-family="monospace" font-size="10">ACTIVITY ORBIT</text>',
+  '<text x="74" y="291" fill="#77738d" font-family="monospace" font-size="10">THE PULSE FOLLOWS THE BUSIEST DAY OF EACH WEEK</text>',
+  '<text x="74" y="330" fill="#66627a" font-family="monospace" font-size="10">QUIET</text>',
+  '<rect x="116" y="322" width="13" height="13" rx="3" fill="#0a0f1d"/><rect x="137" y="322" width="13" height="13" rx="3" fill="#152442"/><rect x="158" y="322" width="13" height="13" rx="3" fill="#274b86"/><rect x="179" y="322" width="13" height="13" rx="3" fill="#5038a8"/><rect x="200" y="322" width="13" height="13" rx="3" fill="#9754d6"/><rect x="221" y="322" width="13" height="13" rx="3" fill="#ff8a4c"/>',
+  '<text x="244" y="332" fill="#66627a" font-family="monospace" font-size="10">LOUD</text>',
+  '<text x="824" y="332" fill="#77738d" font-family="monospace" font-size="10">REAL CONTRIBUTION DATA</text>',
   '</svg>',
 ].join('\n');
 
