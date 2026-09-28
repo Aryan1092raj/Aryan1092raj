@@ -24,7 +24,7 @@ The interesting part is not making an LLM answer. It is making the whole system 
 
 | ORIGIN | CURRENT ORBIT | SIGNAL |
 |:---:|:---:|:---:|
-| IIT Mandi · Electrical Engineering | Python · C++ · FastAPI · Next.js · React | RAG · GenSI · LangChain |
+| IIT Mandi · Electrical Engineering | Python · C++ · FastAPI · Next.js · React | RAG · GenAI · LangChain |
 
 </div>
 
@@ -154,7 +154,7 @@ Local-first codebase intelligence using a Kuzu knowledge graph, decay scoring, h
 | Languages | Python, C++ |
 | Backend | FastAPI |
 | Frontend | Next.js, React |
-| AI / ML | RAG, GenSI, LangChain |
+| AI / ML | RAG, GenAI, LangChain |
 | Workflow | Git, Linux, Docker, GitHub Actions, MCP |
 
 ---
